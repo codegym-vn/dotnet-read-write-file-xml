@@ -18,13 +18,13 @@ namespace CodeGym
             book.Price = 123.5f;
             try
             {
-                XDocument testXML = XDocument.Load("books.xml");
+                XDocument xDoc = XDocument.Load("books.xml");
                 XElement newBook = new XElement("book",
                 new XElement("title", book.Title),
                 new XElement("price", book.Price.ToString()));
 
-                testXML.Element("bookstore").Add(newBook);
-                testXML.Save("books.xml");
+                xDoc.Element("bookstore").Add(newBook);
+                xDoc.Save("books.xml");
                 return true;
             }
             catch (Exception ex)
